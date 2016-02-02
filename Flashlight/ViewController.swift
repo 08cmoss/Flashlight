@@ -9,17 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var isOn = false
+    
+    @IBOutlet weak var onButton: UIButton!
+    
+    
+    @IBAction func buttonTapped(sender: AnyObject) {
+        if isOn {
+        isOn = false
+        self.view.backgroundColor = UIColor.blackColor()
+        onButton.setTitle("On", forState: .Normal)
+        onButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        } else {
+            isOn = true
+            self.view.backgroundColor = UIColor.whiteColor()
+            onButton.setTitle("Off", forState: .Normal)
+            onButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
